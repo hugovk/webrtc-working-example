@@ -12,7 +12,7 @@ sio.attach(app)
 async def connect(sid, environ):
     print('Connected', sid)
     await sio.emit('ready', room=ROOM, skip_sid=sid)
-    sio.enter_room(sid, ROOM)
+    await sio.enter_room(sid, ROOM)
 
 
 @sio.event
